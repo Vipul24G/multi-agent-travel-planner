@@ -17,7 +17,14 @@ from reportlab.platypus import (
     Paragraph,
     Spacer,
     HRFlowable,
-)
+)import os
+import streamlit as st
+
+for key in ("GROQ_API_KEY", "TAVILY_API_KEY", "DATABASE_URL"):
+    if key in st.secrets:
+        os.environ[key] = str(st.secrets[key])
+
+from main import app
 
 def create_pdf(markdown_text):
     buffer = io.BytesIO()
