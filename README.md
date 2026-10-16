@@ -31,23 +31,9 @@ Traditional travel planning often requires switching between multiple websites a
 
 ## 🏗️ Architecture
 
-```mermaid
-flowchart TD
-    A[User Query] --> B[Streamlit Frontend]
-    B --> C[LangGraph Workflow]
-    C --> D[Groq LLM]
-    C --> E[Web Research Agent]
-    C --> F[Aviation Agent]
-    E --> G[Tavily Search API]
-    F --> H[AviationStack API]
-    C <--> I[(PostgreSQL Checkpointer)]
-    D --> J[Travel Plan Response]
-    G --> J
-    H --> J
-    J --> B
-```
-
-*Architecture diagram is a conceptual overview; adjust the nodes and connections to match your actual implementation.*
+<p align="center">
+  <img src="architecture.svg" alt="Animated architecture diagram" width="820">
+</p>
 
 ## 🧰 Tech Stack
 
@@ -77,7 +63,7 @@ multi-agent-travel-planner/
 └── README.md
 ```
 
-*Update the structure above if your actual filenames or folders differ.*
+
 
 ## ⚙️ Getting Started
 
@@ -117,7 +103,6 @@ AVIATIONSTACK_API_KEY=your_aviationstack_api_key
 DATABASE_URL=your_postgresql_connection_url
 ```
 
-Replace the placeholders with your own credentials. Never commit real API keys or database passwords.
 
 ### 5. Run the application
 
