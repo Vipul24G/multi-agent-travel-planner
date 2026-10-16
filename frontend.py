@@ -1,5 +1,21 @@
 import os
 import streamlit as st
+from dotenv import load_dotenv
+
+# Load local .env file (does nothing if absent)
+load_dotenv()
+
+# Load Streamlit Cloud secrets when available
+try:
+    for key in ("GROQ_API_KEY", "TAVILY_API_KEY", "DATABASE_URL"):
+        if key in st.secrets:
+            os.environ[key] = str(st.secrets[key])
+except (FileNotFoundError, RuntimeError):
+    pass
+
+from main import app
+
+from main import app
 from datetime import datetime
 from langchain_core.messages import HumanMessage
 from main import app
@@ -21,9 +37,7 @@ from reportlab.platypus import (
 import os
 import streamlit as st
 
-for key in ("GROQ_API_KEY", "TAVILY_API_KEY", "DATABASE_URL"):
-    if key in st.secrets:
-        os.environ[key] = str(st.secrets[key])
+
 
 from main import app
 
