@@ -17,7 +17,8 @@ from reportlab.platypus import (
     Paragraph,
     Spacer,
     HRFlowable,
-)import os
+)
+import os
 import streamlit as st
 
 for key in ("GROQ_API_KEY", "TAVILY_API_KEY", "DATABASE_URL"):
